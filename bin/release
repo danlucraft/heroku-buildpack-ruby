@@ -2,5 +2,8 @@
 
 require 'pathname'
 
-release = Pathname.new(ARGV.first).join("tmp/heroku-buildpack-release-step.yml")
+build_dir = ARGV.first
+puts "RELEASE #{build_dir}"
+
+release = Pathname.new(build_dir).join("tmp/heroku-buildpack-release-step.yml")
 puts release.read if release.exist?
